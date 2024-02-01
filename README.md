@@ -14,7 +14,7 @@ import sys
 Path = "where your file located"
 #Example "D:/Python/Coding"
 
-sys.path.append("Path")
+sys.path.append(Path)
 
 import Ctrl_Tools
 reload(Ctrl_Tools)
@@ -28,7 +28,7 @@ import sys
 Path = "where your file located"
 #Example "D:/Python/Coding"
 
-sys.path.append("Path")
+sys.path.append(Path)
 import importlib
 
 print ("\n".join(sys.path))
