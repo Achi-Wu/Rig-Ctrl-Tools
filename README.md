@@ -43,8 +43,8 @@ Ctrl_Tools.main_ui()
 What contain in this code
 * Different shape of controller to use --- such as circle, square, one head arrow, two head arrow, cross arrow, lolipop, pyramid, cube
   * Controller will be create at zero position
-  * You can naming your controller by input a name in a text box then choose your controller shape, your contorller will get "_Ctrl" in subfix automatically
   * You can naming your controller after the first thing you choose in outliner or viewport, your contorller will get "_Ctrl" in subfix automatically
+  * You can naming your controller by input a name in a text box then choose your controller shape, your contorller will get "_Ctrl" in subfix automatically
 * Freeze transform command --- To make the selected object’s current transformations be the zero position.
   > If you use this command with your controller directly make sure to use it before you translate(move) your controller to anywhere
 * Make offset command --- Make an offset group for your selected object to get any of input information such as translate, rotate, scale
