@@ -51,3 +51,6 @@ What contain in this code
   * Your offset group will naming after the first thing you choose, your group will get "_Offset" in subfix automatically
   * Your group will contain only the first thing you choose
   > Recommend you to use this command before you translate(move) your controller to anywhere
+
+## Contact
+You can contact me on this mail - achiraya.w03@gmail.com
