@@ -52,5 +52,8 @@ What contain in this code
   * Your group will contain only the first thing you choose
   > Recommend you to use this command before you translate(move) your controller to anywhere
 
+## Video Guide
+You can watch how to install it on your maya and usage of this code in [this video](https://youtu.be/Oewfj-9AopA)
+
 ## Contact
 You can contact me on this mail - achiraya.w03@gmail.com
