@@ -40,7 +40,7 @@ Ctrl_Tools.main_ui()
 ```
 
 ## Usage
-What contain in this code
+What is containing in this code
 * Different shape of controller to use --- such as circle, square, one head arrow, two head arrow, cross arrow, lolipop, pyramid, cube
   * Controller will be create at zero position
   * You can naming your controller after the first thing you choose in outliner or viewport, your contorller will get "_Ctrl" in subfix automatically
