@@ -45,12 +45,17 @@ What is containing in this code
   * Controller will be create at zero position
   * You can naming your controller after the first thing you choose in outliner or viewport, your contorller will get "_Ctrl" in subfix automatically
   * You can naming your controller by input a name in a text box then choose your controller shape, your contorller will get "_Ctrl" in subfix automatically
+* Ctrl color changing --- import color data(json) on your computer to assign on your ctrl
+  * Help you assign any color in this color palette to your ctrl easily
+  * No need to enable override manually
+  > You can change your starting directory path to json file or resize your palette by directly change it in **python file** 
 * Freeze transform command --- To make the selected object’s current transformations be the zero position.
   > If you use this command with your controller directly make sure to use it before you translate(move) your controller to anywhere
 * Make offset command --- Make an offset group for your selected object to get any of input information such as translate, rotate, scale
   * Your offset group will naming after the first thing you choose, your group will get "_Offset" in subfix automatically
   * Your group will contain only the first thing you choose
   > Recommend you to use this command before you translate(move) your controller to anywhere
+* Match transform command --- Match transform values(translate,rotate) of your target to the source you choose
 
 ## Video Guide
 You can watch how to install it on your maya and usage of this code in [this video](https://youtu.be/Oewfj-9AopA)
