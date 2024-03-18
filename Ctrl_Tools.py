@@ -1,4 +1,16 @@
-from maya import cmds
+import json
+import maya.cmds as cmds
+
+# You can change your starting directory path by insert in " " below
+#           
+Json_file_path = r"D:"
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#
+# You can resize your tools window and color picker size here
+width = 400
+color_size = (25,25)
+#
+#
 
 ####################################################
     #Get input command#
@@ -95,6 +107,78 @@ def build_cube_ctrl_command(*args):
     cube_ctrl(cube_name = Ctrl_name)
 
 ####################################################
+    #Color tools#
+    #Brows file
+
+def brows_file():
+    brows_result = cmds.fileDialog2(
+        fileFilter="json (*.json)", 
+        okCaption = "Brows", 
+        fileMode = 1, 
+        dialogStyle = 2,
+        startingDirectory = Json_file_path )
+    
+    if brows_result :
+        path = brows_result[0]
+        create_button(path=path)
+        print (path)     
+    else :
+        print ("no selection")
+
+#Get json data      
+def read_data(path):
+    with open (path, 'r') as openfile:
+        json_object = json.load(openfile)
+    return json_object
+
+def create_button(path):
+    #clear old item
+    clear_item()
+    
+    #read data from json file
+    data = read_data(path)
+
+        #reorder json data
+    reorder_data = []
+    for color_name, color_info in data.items():
+        order_index = color_info.get("order", 0)
+        order_data = [order_index, color_name, color_info]
+        reorder_data.append(order_data)
+
+    #data ordered
+    for color_name,color_info in data.items():
+        order_index = color_info.get("order", 0)
+        color_label = color_info.get("label", "")        
+        color_index = color_info.get("maya_color_index", "")
+        color_display = color_info.get("color", "")
+
+        #for checking
+        print (order_index,color_index,color_label, color_display, color_name)
+        #make button
+        cmds.button("{}_button".format(color_name), bgc = color_display, label = color_label,
+        c = "add_color_command(color_index='{}')".format(color_index) , parent = "color_Layout")
+
+def add_color_command(color_index):
+    #Enable Overrides
+    ctrl_color_list = (cmds.ls(selection = True)[0])
+    get_ctrl_shape = cmds.listRelatives(ctrl_color_list, shapes = True)
+    ctrl_shape = get_ctrl_shape[0]
+    cmds.setAttr(ctrl_shape + '.overrideEnabled', 1)
+    
+    index = "{}".format(color_index)
+    retype_index = float(index)
+    #Add color
+    cmds.setAttr(ctrl_shape + '.overrideColor', retype_index)
+    print (type(index), type(retype_index))
+
+def clear_item():
+    item_list = cmds.gridLayout("color_Layout", q=True, childArray=True) or []
+    for item in item_list:
+        if "_button" in item:
+            cmds.deleteUI(item, control = True)   
+    print ()
+
+####################################################
     #Optional tools#
 
 def freeze_transform(*args):
@@ -107,6 +191,12 @@ def make_offset_group_command(*args):
     naming_group = cmds.rename(make_group,select_ctrl + "_Offset")
     cmds.parent(select_ctrl,naming_group)
 
+def match_transform_command(*args):
+    result_match_list = cmds.ls(selection=True)
+    modify_target = result_match_list[0]
+    modify_source = result_match_list[1]
+    cmds.matchTransform(modify_target,modify_source)
+
 def close_window(*args):
     cmds.deleteUI("my_window", window=True)
 
@@ -116,34 +206,40 @@ def main_ui(*args):
         cmds.deleteUI("my_window", window=True)
 
     # Make a new window
-    my_window = cmds.window( "my_window" ,title="Controller Tools", iconName='Short Name', wh =(400, 500) )
-    cmds.columnLayout( adjustableColumn=True )
-    cmds.rowLayout(numberOfColumns=2)
-    cmds.text( '    Input Ctrl Name    : ', w = 120, h = 50 )
-    cmds.textField( "input_name", w = 200 )
+    my_window = cmds.window( "my_window" ,title="Controller Tools", iconName='Short Name', wh =(width, 500) )
+    master_layout = "main_layout"
+    cmds.rowColumnLayout(master_layout, numberOfColumns = 1, adjustableColumn=True )
+    cmds.rowLayout("Name_layout", numberOfColumns=2, adjustableColumn=2, p = master_layout)
+    cmds.text( '    Input Ctrl Name    : ', w = width/2.5, h = 50, p ="Name_layout" )
+    cmds.textField( "input_name", w = width/2, p ="Name_layout" )
+    cmds.separator( h = 20 , style='out', p = master_layout )
+    
+    
+    cmds.rowLayout(numberOfColumns=2, adjustableColumn=(1,2), p = master_layout)
+    cmds.button( "Circle_Command", label='Circle Ctrl', c =(build_circle_ctrl_command), h = 40 )
+    cmds.button( "Square_Command", label='Square Ctrl', c =(build_square_ctrl_command), h = 40 )
     cmds.setParent( '..' )
-    cmds.separator( w = 50, h = 20 , style='out' )
-
-    cmds.rowLayout(numberOfColumns=2)
-    cmds.button( "Circle_Command", label='Circle Ctrl', c =(build_circle_ctrl_command), w=200, h = 40 )
-    cmds.button( "Square_Command", label='Square Ctrl', c =(build_square_ctrl_command), w=200, h = 40 )
+    cmds.rowLayout(numberOfColumns=2, adjustableColumn=(1,2), p = master_layout)
+    cmds.button( "One head_arrow_Command", label='One head Ctrl', c =(build_one_head_arrow_ctrl_command), h = 40 ) 
+    cmds.button( "Two_heads_arrow_Command", label='Two heads arrow Ctrl', c =(build_two_heads_arrow_ctrl_command), h = 40 )
     cmds.setParent( '..' )
-    cmds.rowLayout(numberOfColumns=2)
-    cmds.button( "One head_arrow_Command", label='One head Ctrl', c =(build_one_head_arrow_ctrl_command), w=200, h = 40 ) 
-    cmds.button( "Two_heads_arrow_Command", label='Two heads arrow Ctrl', c =(build_two_heads_arrow_ctrl_command), w=200, h = 40 )
-    cmds.setParent( '..' )
-    cmds.rowLayout(numberOfColumns=2)
-    cmds.button( "Cross_arrow_Command", label='Cross arrow Ctrl', c =(build_cross_arrow_ctrl_command), w=200, h = 40 ) 
-    cmds.button( "Lolipop_Command", label='Lolipop Ctrl', c =(build_lolipop_ctrl_command), w=200, h = 40 )
+    cmds.rowLayout(numberOfColumns=2, adjustableColumn=(1,2), p = master_layout)
+    cmds.button( "Cross_arrow_Command", label='Cross arrow Ctrl', c =(build_cross_arrow_ctrl_command), h = 40 ) 
+    cmds.button( "Lolipop_Command", label='Lolipop Ctrl', c =(build_lolipop_ctrl_command), h = 40 )
     cmds.setParent( '..' ) 
-    cmds.rowLayout(numberOfColumns=2)
-    cmds.button( "Pyramid_Command", label='Pyramid Ctrl', c =(build_pyramid_ctrl_command), w=200, h = 40 )
-    cmds.button( "Cube_Command", label='Cube Ctrl', c =(build_cube_ctrl_command), w=200, h = 40 ) 
+    cmds.rowLayout(numberOfColumns=2, adjustableColumn=(1,2), p = master_layout)
+    cmds.button( "Pyramid_Command", label='Pyramid Ctrl', c =(build_pyramid_ctrl_command), h = 40 )
+    cmds.button( "Cube_Command", label='Cube Ctrl', c =(build_cube_ctrl_command), h = 40 ) 
     cmds.setParent( '..' ) 
-    cmds.separator( w = 50, h = 20 , style='out' )
+    cmds.separator( w = 50, h = 20 , style='out', p = master_layout )
 
-    cmds.button( "Freeze Transform" ,label='Freeze Transform', c = (freeze_transform) )
-    cmds.button( "Make offset Group" ,label='Make offset Group', c = (make_offset_group_command) ) 
-    cmds.button( "Close" ,label='Close', c = (close_window) )
-    cmds.setParent( '..' )
+    cmds.button("brows_btn", label = "BrowsFile", c = "brows_file()", h=25, p = master_layout )
+    cmds.gridLayout("color_Layout",columnsResizable= True, cellWidthHeight = color_size, p = master_layout )
+    cmds.separator( w = 50, h = 20 , style='out', p = master_layout )
+
+    cmds.button( "Freeze Transform" ,label='Freeze Transform', c = (freeze_transform), h = 40, p = master_layout )
+    cmds.button( "Make offset Group" ,label='Make offset Group', c = (make_offset_group_command), h = 40, p = master_layout ) 
+    cmds.button( "Match Transform" ,label='Match Transform', c = (match_transform_command), h = 40, p = master_layout ) 
+    cmds.separator( w = 50, h = 20 , style='out', p = master_layout )
+    cmds.button( "Close" ,label='Close', c = (close_window), h = 30, p = master_layout )
     cmds.showWindow( my_window )
