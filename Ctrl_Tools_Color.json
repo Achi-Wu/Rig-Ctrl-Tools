@@ -1,0 +1,281 @@
+{
+    "Black": {
+        "order": "0",
+        "label": "Black",
+        "maya_color_index": 1,
+        "color": [0.0,
+                    0.0,
+                    0.0
+        ]
+    },
+    "Dark_Gray": {
+        "order": "1",
+        "label": "D.Gray",
+        "maya_color_index": 2,
+        "color": [0.25,
+                    0.25,
+                    0.25
+        ]
+    },
+    "Light_Gray": {
+        "order": "2",
+        "label": "L.Gray",
+        "maya_color_index": 3,
+        "color": [0.6,
+                    0.6,
+                    0.6
+        ]
+    },
+    "Dark_Red": {
+        "order": "3",
+        "label": "D.Red",
+        "maya_color_index": 4,
+        "color": [0.60,
+                    0.0,
+                    0.15
+        ]
+    },
+    "Dark_Blue": {
+        "order": "4",
+        "label": "D.Blue",
+        "maya_color_index": 5,
+        "color": [0.0,
+                    0.01,
+                    0.37
+        ]
+    },
+    "Blue": {
+        "order": "5",
+        "label": "Blue",
+        "maya_color_index": 6,
+        "color": [0.0,
+                    0.0,
+                    1
+        ]
+    },
+    "Dark_Green": {
+        "order": "6",
+        "label": "D.Green",
+        "maya_color_index": 7,
+        "color": [0.0,
+                    0.28,
+                    0.1
+        ]
+    },
+    "Dark_Purple": {
+        "order": "7",
+        "label": "D.Purple",
+        "maya_color_index": 8,
+        "color": [0.15,
+                    0.0,
+                    0.26
+        ]
+    },
+    "Violet": {
+        "order": "8",
+        "label": "Violet",
+        "maya_color_index": 9,
+        "color": [0.78,
+                    0.0,
+                    0.78
+        ]
+    },
+    "Light_Brown": {
+        "order": "9",
+        "label": "L.Brown",
+        "maya_color_index": 10,
+        "color": [0.54,
+                    0.28,
+                    0.2
+        ]
+    },
+    "Dark_Brown": {
+        "order": "10",
+        "label": "D.Brown",
+        "maya_color_index": 11,
+        "color": [0.25,
+                    0.13,
+                    0.12
+        ]
+    },
+    "Crimson": {
+        "order": "11",
+        "label": "Crimson",
+        "maya_color_index": 12,
+        "color": [0.6,
+                    0.15,
+                    0.0
+        ]
+    },
+    "Red": {
+        "order": "12",
+        "label": "Red",
+        "maya_color_index": 13,
+        "color": [1,
+                    0.0,
+                    0.0
+        ]
+    },
+    "Green": {
+        "order": "13",
+        "label": "Green",
+        "maya_color_index": 14,
+        "color": [0.0,
+                    1,
+                    0.0
+        ]
+    },
+    "Navy": {
+        "order": "14",
+        "label": "M.Blue",
+        "maya_color_index": 15,
+        "color": [0.0,
+                    0.25,
+                    0.6
+        ]
+    },
+    "White": {
+        "order": "15",
+        "label": "White",
+        "maya_color_index": 16,
+        "color": [1,
+                    1,
+                    1
+        ]
+    },
+    "Yellow": {
+        "order": "16",
+        "label": "Yellow",
+        "maya_color_index": 17,
+        "color": [1,
+                    1,
+                    0
+        ]
+    },
+    "Light_Blue": {
+        "order": "17",
+        "label": "L.Blue",
+        "maya_color_index": 18,
+        "color": [0.39,
+                    0.87,
+                    1
+        ]
+    },
+    "Light_Green": {
+        "order": "18",
+        "label": "L.Green",
+        "maya_color_index": 19,
+        "color": [0.27,
+                    1,
+                    0.64
+        ]
+    },
+    "Light_Red": {
+        "order": "19",
+        "label": "L.Red",
+        "maya_color_index": 20,
+        "color": [1,
+                    0.69,
+                    0.69
+        ]
+    },
+    "Skin": {
+        "order": "20",
+        "label": "Skin",
+        "maya_color_index": 21,
+        "color": [0.9,
+                    0.68,
+                    0.48
+        ]
+    },
+    "Light_Yellow": {
+        "order": "21",
+        "label": "L.Yellow",
+        "maya_color_index": 22,
+        "color": [1,
+                    1,
+                    0.39
+        ]
+    },
+    "Jade_green": {
+        "order": "22",
+        "label": "Jade",
+        "maya_color_index": 23,
+        "color": [0.0,
+                    0.6,
+                    0.33
+        ]
+    },
+    "Salmon": {
+        "order": "23",
+        "label": "Salmon",
+        "maya_color_index": 24,
+        "color": [0.84,
+                    0.4,
+                    0.24
+        ]
+    },
+    "Gold": {
+        "order": "24",
+        "label": "Gold",
+        "maya_color_index": 25,
+        "color": [1,
+                    0.88,
+                    0.16
+        ]
+    },
+    "Pear": {
+        "order": "25",
+        "label": "Pear",
+        "maya_color_index": 26,
+        "color": [0.57,
+                    0.93,
+                    0.15
+        ]
+    },
+    "Pistachio": {
+        "order": "26",
+        "label": "Pistachio",
+        "maya_color_index": 27,
+        "color": [0.29,
+                    0.7,
+                    0.41
+        ]
+    },
+    "Aquamarine": {
+        "order": "27",
+        "label": "Aq.marine",
+        "maya_color_index": 28,
+        "color": [0.33,
+                    0.93,
+                    0.67
+        ]
+    },
+    "Baby_Blue": {
+        "order": "28",
+        "label": "BB.Blue",
+        "maya_color_index": 29,
+        "color": [0.24,
+                    0.83,
+                    0.91
+        ]
+    },
+    "Orchid": {
+        "order": "29",
+        "label": "Orchid",
+        "maya_color_index": 30,
+        "color": [0.39,
+                    0.24,
+                    0.87
+        ]
+    },
+    "Pink": {
+        "order": "30",
+        "label": "Pink",
+        "maya_color_index": 31,
+        "color": [0.8,
+                    0.2,
+                    0.5
+        ]
+    }
+}
