@@ -59,6 +59,7 @@ What is containing in this code
 
 ## Video Guide
 You can watch how to install it on your maya and usage of this code in [this video](https://youtu.be/Oewfj-9AopA)
+> You can check out about new command in [1st update details](https://youtu.be/r-k67bwQh58)
 
 ## Contact
 You can contact me on this mail - achiraya.w03@gmail.com
