@@ -195,7 +195,8 @@ def match_transform_command(*args):
     result_match_list = cmds.ls(selection=True)
     modify_target = result_match_list[0]
     modify_source = result_match_list[1]
-    cmds.matchTransform(modify_target,modify_source)
+    cmds.MatchTranslation(modify_target,modify_source)
+    cmds.MatchRotation(modify_target,modify_source)
 
 def close_window(*args):
     cmds.deleteUI("my_window", window=True)
