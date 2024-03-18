@@ -11,10 +11,10 @@ _don't forget to **change your file path**_
 For maya 2018-2020
 ```python
 import sys
-Path = "where your file located"
+Path_location = r"where your file located"
 #Example "D:/Python/Coding"
 
-sys.path.append(Path)
+sys.path.append(Path_location)
 
 import Ctrl_Tools
 reload(Ctrl_Tools)
@@ -25,10 +25,10 @@ Ctrl_Tools.main_ui()
 For maya 2021-2024
 ```python
 import sys
-Path = "where your file located"
+Path_location = r"where your file located"
 #Example "D:/Python/Coding"
 
-sys.path.append(Path)
+sys.path.append(Path_location)
 import importlib
 
 print ("\n".join(sys.path))
