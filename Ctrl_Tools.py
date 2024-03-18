@@ -110,16 +110,16 @@ def build_cube_ctrl_command(*args):
     #Color tools#
     #Brows file
 
-def brows_file():
-    brows_result = cmds.fileDialog2(
+def browse_file(*args):
+    browse_result = cmds.fileDialog2(
         fileFilter="json (*.json)", 
-        okCaption = "Brows", 
+        okCaption = "Browse", 
         fileMode = 1, 
         dialogStyle = 2,
         startingDirectory = Json_file_path )
     
-    if brows_result :
-        path = brows_result[0]
+    if browse_result :
+        path = browse_result[0]
         create_button(path=path)
         print (path)     
     else :
@@ -234,7 +234,7 @@ def main_ui(*args):
     cmds.setParent( '..' ) 
     cmds.separator( w = 50, h = 20 , style='out', p = master_layout )
 
-    cmds.button("brows_btn", label = "BrowsFile", c = "brows_file()", h=25, p = master_layout )
+    cmds.button("browse_btn", label = "BrowseFile", c = (browse_file), h=25, p = master_layout )
     cmds.gridLayout("color_Layout",columnsResizable= True, cellWidthHeight = color_size, p = master_layout )
     cmds.separator( w = 50, h = 20 , style='out', p = master_layout )
 
